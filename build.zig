@@ -14,7 +14,7 @@ pub fn build(b: *std.Build) void {
 
     const raylib = try raylibSDK.addRaylib(b, target, optimize, .{});
     exe.linkLibrary(raylib);
-    exe.addIncludePath(.{ .path = "raylib/src" });
+    exe.addIncludePath(b.path("raylib/src"));
 
     b.installArtifact(exe);
 
